@@ -1,0 +1,9 @@
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+let jsonData = JSON.parse(responseBody);
+pm.test("запись name, id", function () {
+    pm.collectionVariables.set("name", jsonData.name);
+    pm.collectionVariables.set("petid", jsonData.id);
+});
